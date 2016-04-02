@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       <!-- 配置数据源 -->
+       <bean id="dataSource"
+             class="org.apache.commons.dbcp2.BasicDataSource">
+              <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+              <property name="url" value="${jdbc_url}"/>
+              <property name="username" value="${jdbc_username}" />
+              <property name="password" value="${jdbc_password}" />
+              <property name="initialSize" value="5" />
+       </bean>
+
+        <!-- mybatis文件配置，扫描所有mapper文件 -->
+        <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+            <property name="dataSource" ref="dataSource" />
+            <property name="configLocation" value="classpath:config/sqlmap/mybatis-config.xml"/>
+            <property name="mapperLocations" value="classpath:config/sqlmap/sqlmap-*.xml" />
+        </bean>
+
+        <!-- spring与mybatis整合配置，扫描所有dao -->
+        <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+            <property name="basePackage" value="com.xmc.dao" />
+            <!-- 可以自己声明一个注解来注释mybatis的接口否则默认选择所有的interface -->
+            <property name="annotationClass" value="com.xmc.annotation.MybatisComponent"/>
+            <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
+        </bean>
+
+        <!-- 对数据源进行事务管理 -->
+        <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource" />
+        </bean>
+
+
+        <!--<tx:advice id="transactionAdvice" transaction-manager="transactionManager">-->
+            <!--<tx:attributes>-->
+                <!--<tx:method name="add*" propagation="REQUIRED" />-->
+                <!--<tx:method name="append*" propagation="REQUIRED" />-->
+                <!--<tx:method name="insert*" propagation="REQUIRED" />-->
+                <!--<tx:method name="save*" propagation="REQUIRED" />-->
+                <!--<tx:method name="update*" propagation="REQUIRED" />-->
+                <!--<tx:method name="modify*" propagation="REQUIRED" />-->
+                <!--<tx:method name="edit*" propagation="REQUIRED" />-->
+                <!--<tx:method name="delete*" propagation="REQUIRED" />-->
+                <!--<tx:method name="remove*" propagation="REQUIRED" />-->
+                <!--<tx:method name="repair" propagation="REQUIRED" />-->
+                <!--<tx:method name="delAndRepair" propagation="REQUIRED" />-->
+
+                <!--<tx:method name="get*" propagation="SUPPORTS" />-->
+                <!--<tx:method name="find*" propagation="SUPPORTS" />-->
+                <!--<tx:method name="load*" propagation="SUPPORTS" />-->
+                <!--<tx:method name="search*" propagation="SUPPORTS" />-->
+                <!--<tx:method name="datagrid*" propagation="SUPPORTS" />-->
+
+                <!--<tx:method name="*" propagation="SUPPORTS" />-->
+            <!--</tx:attributes>-->
+        <!--</tx:advice>-->
+
+</beans>

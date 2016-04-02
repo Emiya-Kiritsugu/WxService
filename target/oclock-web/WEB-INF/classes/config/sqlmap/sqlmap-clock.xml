@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xmc.dao.ClockDao">
+    <!-- 注意一下resultType和resultMap是很不一样的-->
+    <select id="getClockById" parameterType="Clock" resultType="Clock">
+        SELECT *
+        FROM clock
+        WHERE id = #{id};
+    </select>
+</mapper>
