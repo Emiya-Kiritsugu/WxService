@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/WxService.iml" filepath="$PROJECT_DIR$/WxService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/oclock-web.iml" filepath="$PROJECT_DIR$/oclock-web.iml" />
     </modules>
   </component>
 </project>

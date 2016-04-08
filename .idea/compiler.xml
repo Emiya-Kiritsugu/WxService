@@ -22,13 +22,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="Oclock" />
-        <module name="WxService" />
+        <module name="oclock-web" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Oclock" target="1.5" />
-      <module name="WxService" target="1.5" />
+      <module name="oclock-web" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
