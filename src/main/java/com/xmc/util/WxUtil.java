@@ -1,5 +1,6 @@
 package com.xmc.util;
 
+import com.xmc.api.Consts;
 import me.chanjar.weixin.common.api.WxConsts;
 import me.chanjar.weixin.common.bean.WxMenu;
 import me.chanjar.weixin.common.exception.WxErrorException;
@@ -17,35 +18,53 @@ import java.util.Map;
  */
 public class WxUtil {
 
-    private static WxMpInMemoryConfigStorage configStorage = new WxMpInMemoryConfigStorage();
+    private static WxMpInMemoryConfigStorage configStorage;
     private static WxMpService wxMpService;
     private static WxMpMessageRouter wxMpMessageRouter;
+    private static WxMenu wxMenu;
+
     static{
-        configStorage.setAppId("wx642577ae8e9add78");
-        configStorage.setSecret("36fd4c73ee2999d45cac221a7b1c5fd6");
+        //TODO 后期改成配置文件实现
+        configStorage = new WxMpInMemoryConfigStorage();
+        configStorage.setAppId("wx5e194f07d324c904");
+        configStorage.setSecret("dc5ad6dc907f2f3df4a276d232fd0f9a");
         configStorage.setToken("xmc1993");
         configStorage.setAesKey("1gTTXDq0s9W4459ZPFVDIztu7uy8ddi3oMWhWXJkieg");
 
+        //生成WxMpService
         wxMpService = new WxMpServiceImpl();
         wxMpService.setWxMpConfigStorage(configStorage);
 
-        wxMpMessageRouter = new WxMpMessageRouter(wxMpService);
-        wxMpMessageRouter.rule()
-                .msgType(WxConsts.CUSTOM_MSG_TEXT)
-//                .content("")
-//                .async(false)
-                .handler(new WxMpMessageHandler() {
-                    public WxMpXmlOutMessage handle(WxMpXmlMessage wxMpXmlMessage, Map<String, Object> map,
-                                                    WxMpService wxMpService,
-                                                    WxSessionManager wxSessionManager) throws WxErrorException {
-                        WxMpXmlOutTextMessage m
-                                = WxMpXmlOutMessage.TEXT().content("测试加密消息").fromUser(wxMpXmlMessage.getToUserName())
-                                .toUser(wxMpXmlMessage.getFromUserName()).build();
-                        return m;
-                    }
-                })
-                .end();
+        //创建菜单
+        wxMenu = WxMenu.fromJson(Consts.MENU);
+        try {
+            wxMpService.menuCreate(wxMenu);
+        } catch (WxErrorException e) {
+            e.printStackTrace();
+        }
 
+        //配置路由的相关信息
+        wxMpMessageRouter = new WxMpMessageRouter(wxMpService);
+        configWxRouter(wxMpMessageRouter);
+
+    }
+
+    /**
+     * 对路由进行配置
+     * @param wxMpMessageRouter
+     */
+    private static void configWxRouter(WxMpMessageRouter wxMpMessageRouter){
+        wxMpMessageRouter
+                .rule()
+                    .msgType(WxConsts.XML_MSG_EVENT)
+                    .async(false)
+                    .event(WxConsts.BUTTON_CLICK)
+                    .handler(new WxClickMpMessageHandler())
+                .end()
+                .rule()
+                    .async(Consts.ASYNC)
+                    .msgType(WxConsts.XML_MSG_TEXT)
+                .end();
     }
 
 
@@ -94,16 +113,31 @@ public class WxUtil {
         return wxMpService.checkSignature(timestamp, nonce, signature);
     }
 
-
-    private static WxMpMessageHandler handler = new WxMpMessageHandler() {
-        public WxMpXmlOutMessage handle(WxMpXmlMessage wxMpXmlMessage, Map<String, Object> map,
-                                        WxMpService wxMpService,
-                                        WxSessionManager wxSessionManager) throws WxErrorException {
-            WxMpXmlOutTextMessage m
-                    = WxMpXmlOutMessage.TEXT().content("测试加密消息").fromUser(wxMpXmlMessage.getToUserName())
-                    .toUser(wxMpXmlMessage.getFromUserName()).build();
-            return m;
+    /**
+     * 处理菜单点击事件
+     */
+    public static class WxClickMpMessageHandler implements WxMpMessageHandler{
+        public WxMpXmlOutMessage handle(WxMpXmlMessage wxMpXmlMessage, Map<String, Object> map, WxMpService wxMpService, WxSessionManager wxSessionManager)
+                throws WxErrorException {
+            //如果要求返回联系方式
+            if(wxMpXmlMessage.getEventKey().equals(Consts.NUMGER_EVENT_ID)){
+                WxMpXmlOutTextMessage textMessage = WxMpXmlOutMessage.TEXT()
+                        .content("8321-312")
+                        .fromUser(wxMpXmlMessage.getToUserName())
+                        .toUser(wxMpXmlMessage.getFromUserName())
+                        .build();
+                return textMessage;
+            }//如果需要返回微博
+            else if(wxMpXmlMessage.getEventKey().equals(Consts.WEIBO_EVENT_ID)){
+                WxMpXmlOutTextMessage textMessage = WxMpXmlOutMessage.TEXT()
+                        .content("@rzn")
+                        .fromUser(wxMpXmlMessage.getToUserName())
+                        .toUser(wxMpXmlMessage.getFromUserName())
+                        .build();
+                return textMessage;
+            }
+            return null;
         }
-    };
+    }
 
 }

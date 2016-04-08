@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
-
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+<!-- 设置全名称类的别名 -->
+<typeAliases>
+    <typeAlias alias="Clock" type="com.xmc.entity.Clock"/>
+    <typeAlias alias="Student" type="com.xmc.entity.Student"/>
+    <typeAlias alias="Teacher" type="com.xmc.entity.Teacher"/>
+</typeAliases>
 
-    <!-- 设置全名称类的别名 -->
-    <typeAliases>
-        <typeAlias alias="Clock" type="com.xmc.entity.Clock"/>
-    </typeAliases>
-
-    <!-- 由spring扫描加载 不需要手动配置 -->
-    <mappers>
-    </mappers>
+<mappers>
+</mappers>
 
 </configuration>

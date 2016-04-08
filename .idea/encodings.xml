@@ -3,5 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/resources/config/sqlmap/sqlmap-clock.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/config/sqlmap/sqlmap-student.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/resources/config/sqlmap/sqlmap-teacher.xml" charset="GBK" />
   </component>
 </project>
