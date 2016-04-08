@@ -2,4 +2,32 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xmc.dao.TeacherDao">
 
+    <select id="getTeacherById" parameterType="int" resultType="Teacher">
+        SELECT *
+        FROM Teachers
+        WHERE teaNo = #{teaNo};
+    </select>
+
+    <delete id="deleteById" parameterType="int">
+        DELETE
+        FROM Teachers
+        WHERE teaNo = #{teaNo};
+    </delete>
+
+    <select id="getAllTeachers" resultType="Teacher">
+        SELECT *
+        FROM Teachers
+    </select>
+
+    <update id="updateById" parameterType="Teacher">
+        UPDATE Teachers
+        SET name = #{name}, profile = #{profile}, photoUrl = #{photoUrl}, achievement = #{achievement}
+        WHERE  teaNo = #{teaNo}
+    </update>
+
+    <insert id="insert" parameterType="Teacher" useGeneratedKeys="true" keyProperty="teaNo">
+        INSERT INTO Teachers(name, photoUrl, profile, achievement)
+        VALUES (#{name}, #{photoUrl}, #{profile}, #{achievement});
+    </insert>
+
 </mapper>

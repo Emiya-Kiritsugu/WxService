@@ -2,6 +2,9 @@ package com.xmc.dao;
 
 import com.xmc.annotation.MybatisComponent;
 import com.xmc.entity.Student;
+import com.xmc.entity.Teacher;
+
+import java.util.List;
 
 /**
  * Created by xmc1993 on 16/4/8.
@@ -9,13 +12,13 @@ import com.xmc.entity.Student;
 @MybatisComponent
 public interface TeacherDao {
 
-    int insert(Student student);
+    void insert(Teacher teacher);
 
-    int deleteById(int id);
+    void deleteById(int teaNo);
 
-    int updateById(Student student);
+    void updateById(Teacher teacher);
 
-    int getTeacherById(int id);
+    Teacher getTeacherById(int teaNo);
 
-    int getAllTeachers();
+    List<Teacher> getAllTeachers();
 }

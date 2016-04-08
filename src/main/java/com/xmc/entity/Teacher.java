@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by xmc1993 on 16/4/8.
  */
 public class Teacher implements Serializable{
-    private Integer taaNo;
+    private Integer teaNo;
     private String name;
     private String photoUrl;
     private String profile;
@@ -44,12 +44,12 @@ public class Teacher implements Serializable{
         this.achievement = achievement;
     }
 
-    public Integer getTaaNo() {
-        return taaNo;
+    public Integer getTeaNo() {
+        return teaNo;
 
     }
 
-    public void setTaaNo(Integer taaNo) {
-        this.taaNo = taaNo;
+    public void setTeaNo(Integer teaNo) {
+        this.teaNo = teaNo;
     }
 }

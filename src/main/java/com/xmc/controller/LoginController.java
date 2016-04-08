@@ -2,8 +2,10 @@ package com.xmc.controller;
 
 import com.xmc.entity.Clock;
 import com.xmc.entity.Student;
+import com.xmc.entity.Teacher;
 import com.xmc.service.LoginService;
 import com.xmc.service.StudentService;
+import com.xmc.service.TeacherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -23,6 +25,8 @@ public class LoginController {
     LoginService loginService;
     @Autowired
     StudentService studentService;
+    @Autowired
+    TeacherService teacherService;
 
     @RequestMapping("/login")
     public String login(ModelMap modelMap){
@@ -48,6 +52,15 @@ public class LoginController {
         List<Student> studentList = studentService.getAllStudents();
         student.setGrade("幼儿园");
         studentService.updateStudent(student);
+        return "pages/Test";
+    }
+
+    @RequestMapping("teacher")
+    public String testTeacherDao(){
+        Teacher teacher = teacherService.getTeacherById(1);
+        List<Teacher> teacherList = teacherService.getAllTeachers();
+        teacher.setName("测试");
+        teacherService.updateTeacher(teacher);
         return "pages/Test";
     }
 }
