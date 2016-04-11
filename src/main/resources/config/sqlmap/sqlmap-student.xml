@@ -8,7 +8,7 @@
         WHERE stuNo = #{stuNo};
     </select>
 
-    <delete id="deleteStudentById" parameterType="int">
+    <delete id="deleteById" parameterType="int">
         DELETE
         FROM Students
         WHERE stuNo = #{stuNo};
