@@ -18,6 +18,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title><%=request.getAttribute("title") %></title>
   <link href="/staticSource/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/staticSource/css/style.css">
+  <link rel="stylesheet" href="/staticSource/css/jquery.fileupload.css">
 </head>
 <body>
 <div class="container">
@@ -38,8 +40,8 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li ><a href="#">主页 <span class="sr-only">(current)</span></a></li>
-          <li class="active"><a href="/view/allstudent">学生风采</a></li>
-          <li ><a href="/view/allteacher">老师风采</a></li>
+          <li class="active"><a href="/view/allstudent">管理学生</a></li>
+          <li ><a href="/view/allteacher">管理老师</a></li>
         </ul>
         <form class="navbar-form navbar-left" role="search">
           <div class="form-group">
@@ -165,9 +167,24 @@
               <textarea class="form-control" rows="3" id="achieve" name="achieve"></textarea>
             </div>
           </div>
+          <div class="row">
+            <div class="col-sm-12">
+            <span class="btn btn-success fileinput-button">
+              <i class="glyphicon glyphicon-plus"></i>
+              <span>选择头像...</span>
+              <!-- The file input field used as target for the file upload widget -->
+              <input id="fileupload" type="file" name="files[]" enctype="multipart/form-data">
+            </span>
+            <div id="progress" class="progress">
+              <div class="progress-bar progress-bar-success"></div>
+            </div>
+            </div>
+            <!-- The container for the uploaded files -->
+          </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="submit" class="btn btn-primary">提交</button>
         </form>
+
       </div>
       <div class="modal-footer">
       </div>
@@ -178,5 +195,36 @@
 <script src="/staticSource/jquery-1.12.3.min.js"></script>
 <script src="/staticSource/js/bootstrap.min.js"></script>
 <script src="/staticSource/student.js"></script>
+<script src="/staticSource/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="/staticSource/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="/staticSource/js/jquery.fileupload.js"></script>
+<script>
+  /*jslint unparam: true */
+  /*global window, $ */
+  $(function () {
+    'use strict';
+    // Change this to the location of your server-side upload handler:
+    var url = "/view/uploadPic";
+    $('#fileupload').fileupload({
+      url: url,
+      dataType: 'json',
+      done: function (e, data) {
+        $.each(data.result.files, function (index, file) {
+          $('<p/>').text(file.name).appendTo('#files');
+        });
+      },
+      progressall: function (e, data) {
+        var progress = parseInt(data.loaded / data.total * 100, 10);
+        $('#progress .progress-bar').css(
+                'width',
+                progress + '%'
+        );
+      }
+    }).prop('disabled', !$.support.fileInput)
+            .parent().addClass($.support.fileInput ? undefined : 'disabled');
+  });
+</script>
 </body>
 </html>

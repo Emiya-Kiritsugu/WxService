@@ -8,10 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -137,5 +142,22 @@ public class ShowController {
         modelMap.put("title","孺子牛学生风采");
         modelMap.put("allTeacher",allStudent);
         return "pages/student";
+    }
+
+    @RequestMapping("/uploadPic")
+    public void uploadPic(@RequestParam("studentPhoto") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("dd");
+        String FILE_PATH = "/upload/";
+        String fileName = file.getOriginalFilename();
+        File tempFile = new File(FILE_PATH, new Date().getTime() + String.valueOf(fileName));
+        if (!tempFile.getParentFile().exists()) {
+            tempFile.getParentFile().mkdir();
+        }
+        if (!tempFile.exists()) {
+            tempFile.createNewFile();
+        }
+        file.transferTo(tempFile);
+        String filePath = "/download?fileName=" + tempFile.getName();
+        System.out.println(filePath);
     }
 }
