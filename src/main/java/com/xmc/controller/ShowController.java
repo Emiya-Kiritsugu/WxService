@@ -67,6 +67,7 @@ public class ShowController {
             teacher.setProfile(teacherProfile);
             teacherService.updateTeacher(teacher);
             List<Teacher> allTeacher = teacherService.getAllTeachers();
+
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allTeacher", allTeacher);
             return "pages/teacher";
@@ -88,7 +89,7 @@ public class ShowController {
     }
 
     @RequestMapping("/updatestudent")
-    public String updatestudent(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
+    public String updatestudent(@RequestParam("studentPhoto") MultipartFile file,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws IOException {
         if(request.getParameter("studentNo") != null && !request.getParameter("studentNo").equals("")) {
             System.out.println("updateStudent");
             String teacherAchieve = request.getParameter("achieve");
@@ -97,6 +98,7 @@ public class ShowController {
             student.setAchievement(teacherAchieve);
             studentService.updateStudent(student);
             List<Student> allStudent = studentService.getAllStudents();
+            uploadPic(file,request,response);
             modelMap.put("title", "孺子牛学生风采");
             modelMap.put("allStudent", allStudent);
             return "pages/student";
@@ -115,6 +117,7 @@ public class ShowController {
             student.setSchool(school);
             studentService.insertStudent(student);
             List<Student> allStudent = studentService.getAllStudents();
+            uploadPic(file,request,response);
             System.out.println(allStudent.get(0).getName());
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allStudent", allStudent);
@@ -144,8 +147,8 @@ public class ShowController {
         return "pages/student";
     }
 
-    @RequestMapping("/uploadPic")
-    public void uploadPic(@RequestParam("studentPhoto") MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
+
+    private void uploadPic( MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
         System.out.println("dd");
         String FILE_PATH = "/upload/";
         String fileName = file.getOriginalFilename();

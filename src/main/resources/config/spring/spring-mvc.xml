@@ -32,5 +32,4 @@
             <property name="prefix" value="/"></property>
             <property name="suffix" value=".jsp"></property>
         </bean>
-
 </beans>

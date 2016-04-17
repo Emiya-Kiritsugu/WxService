@@ -125,7 +125,7 @@
         <h4 class="modal-title" id="myModalLabel">更新学生信息</h4>
       </div>
       <div class="modal-body">
-        <form id="updateStudent" action="/view/updatestudent" method="post">
+        <form id="updateStudent" action="/view/updatestudent" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="studentNo" class="col-sm-2 control-label">StudentNo</label>
             <div class="col-sm-10">
@@ -167,19 +167,11 @@
               <textarea class="form-control" rows="3" id="achieve" name="achieve"></textarea>
             </div>
           </div>
-          <div class="row">
-            <div class="col-sm-12">
-            <span class="btn btn-success fileinput-button">
-              <i class="glyphicon glyphicon-plus"></i>
-              <span>选择头像...</span>
-              <!-- The file input field used as target for the file upload widget -->
-              <input id="fileupload" type="file" name="files[]" enctype="multipart/form-data">
-            </span>
-            <div id="progress" class="progress">
-              <div class="progress-bar progress-bar-success"></div>
+          <div class="form-group">
+            <label for="achieve" class="col-sm-2 control-label">Achievement</label>
+            <div class="col-sm-10">
+              <input type="file" name="studentPhoto" enctype="multipart/form-data"/>
             </div>
-            </div>
-            <!-- The container for the uploaded files -->
           </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="submit" class="btn btn-primary">提交</button>
