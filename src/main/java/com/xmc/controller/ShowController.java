@@ -55,7 +55,7 @@ public class ShowController {
     }
 
     @RequestMapping("/updateteacher")
-    public String updateteacher(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws UnsupportedEncodingException {
+    public String updateteacher(@RequestParam("teacherPhoto") MultipartFile file,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws IOException {
 
         if(request.getParameter("teachNo") != null && !request.getParameter("teachNo").equals("")) {
             System.out.println("updateTeacher");
@@ -67,7 +67,7 @@ public class ShowController {
             teacher.setProfile(teacherProfile);
             teacherService.updateTeacher(teacher);
             List<Teacher> allTeacher = teacherService.getAllTeachers();
-
+            uploadPic(file,request,response);
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allTeacher", allTeacher);
             return "pages/teacher";
@@ -82,6 +82,7 @@ public class ShowController {
             teacher.setName(teacherName);
             teacherService.insertTeacher(teacher);
             List<Teacher> allTeacher = teacherService.getAllTeachers();
+            uploadPic(file,request,response);
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allTeacher", allTeacher);
             return "pages/teacher";
@@ -96,9 +97,10 @@ public class ShowController {
             int studentNo = Integer.parseInt(request.getParameter("studentNo"));
             Student student = studentService.getStudentById(studentNo);
             student.setAchievement(teacherAchieve);
+            String photoUrl = uploadPic(file, request, response);
+            student.setPhotoUrl(photoUrl);
             studentService.updateStudent(student);
             List<Student> allStudent = studentService.getAllStudents();
-            uploadPic(file,request,response);
             modelMap.put("title", "孺子牛学生风采");
             modelMap.put("allStudent", allStudent);
             return "pages/student";
@@ -115,9 +117,10 @@ public class ShowController {
             student.setGrade(grade);
             student.setSex(sex);
             student.setSchool(school);
+            String photoUrl= uploadPic(file, request, response);
+            student.setPhotoUrl(photoUrl);
             studentService.insertStudent(student);
             List<Student> allStudent = studentService.getAllStudents();
-            uploadPic(file,request,response);
             System.out.println(allStudent.get(0).getName());
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allStudent", allStudent);
@@ -147,12 +150,35 @@ public class ShowController {
         return "pages/student";
     }
 
+    @RequestMapping("/showstudent")
+    public String showstudent(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
+        System.out.println("allStudent");
+        List<Student> allStudent = studentService.getAllStudents();
+        modelMap.put("title","孺子牛学生风采");
+        modelMap.put("allStudent",allStudent);
+        return "pages/showstudent";
+    }
 
-    private void uploadPic( MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        System.out.println("dd");
-        String FILE_PATH = "/upload/";
-        String fileName = file.getOriginalFilename();
-        File tempFile = new File(FILE_PATH, new Date().getTime() + String.valueOf(fileName));
+    @RequestMapping("/showteacher")
+    public String showteacher(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
+        System.out.println("allTeacher");
+        List<Teacher> allTeacher = teacherService.getAllTeachers();
+        modelMap.put("title","孺子牛老师风采");
+        modelMap.put("allTeacher",allTeacher);
+        return "pages/showteacher";
+    }
+
+    private String uploadPic( MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String logoPathDir = "/staticSource/upload/";
+        String logoRealPathDir = request.getSession().getServletContext()
+                .getRealPath(logoPathDir);
+        File targetDir = new File(logoRealPathDir);
+        if(!targetDir.exists()){
+            targetDir.mkdir();
+        }
+        String fileName = new Date().getTime() + file.getOriginalFilename();
+
+        File tempFile = new File(logoRealPathDir, String.valueOf(fileName));
         if (!tempFile.getParentFile().exists()) {
             tempFile.getParentFile().mkdir();
         }
@@ -160,7 +186,7 @@ public class ShowController {
             tempFile.createNewFile();
         }
         file.transferTo(tempFile);
-        String filePath = "/download?fileName=" + tempFile.getName();
-        System.out.println(filePath);
+        System.out.println( logoPathDir+fileName);
+        return logoPathDir+fileName;
     }
 }

@@ -114,7 +114,7 @@
     </table>
   </div>
 </div>
-
+<img src="/staticSource/upload/1460998755648test.png"/>
 
 <!-- Modal -->
 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">

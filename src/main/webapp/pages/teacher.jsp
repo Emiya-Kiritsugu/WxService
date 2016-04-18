@@ -143,6 +143,12 @@
               <textarea class="form-control" rows="3" id="achieve" name="achieve"></textarea>
             </div>
           </div>
+          <div class="form-group">
+            <label for="achieve" class="col-sm-2 control-label">Achievement</label>
+            <div class="col-sm-10">
+              <input type="file" name="teacherPhoto" enctype="multipart/form-data"/>
+            </div>
+          </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="submit" class="btn btn-primary">提交</button>
         </form>
