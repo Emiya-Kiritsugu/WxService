@@ -19,7 +19,7 @@ public class Consts {
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"教师风采\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://www.baidu.com/\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/view/showteacher\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
