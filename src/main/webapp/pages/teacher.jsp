@@ -118,7 +118,7 @@
         <h4 class="modal-title" id="myModalLabel">更新老师信息</h4>
       </div>
       <div class="modal-body">
-        <form id="updateTeacher" action="/view/updateteacher" method="post">
+        <form id="updateTeacher" action="/view/updateteacher" method="post" enctype="multipart/form-data">
           <div class="form-group">
             <label for="teacherNo" class="col-sm-2 control-label">TeacherNo</label>
             <div class="col-sm-10">
