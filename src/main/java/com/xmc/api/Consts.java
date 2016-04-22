@@ -24,7 +24,7 @@ public class Consts {
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"学生风采\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/view/showstudent\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
