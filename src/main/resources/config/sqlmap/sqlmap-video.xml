@@ -26,7 +26,7 @@
     </update>
 
     <insert id="insert" parameterType="Video" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO Students(name, grade, description, url)
+        INSERT INTO Videos(name, grade, description, url)
         VALUES (#{name}, #{grade}, #{description}, #{url});
     </insert>
 
