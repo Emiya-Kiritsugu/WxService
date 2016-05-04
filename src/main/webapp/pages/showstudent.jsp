@@ -21,24 +21,30 @@
 <body>
 <div class="container">
   <div class="row">
-    <% List<Student> allStudent =(List<Student>) request.getAttribute("allStudent");
-      for(Student student:allStudent){
-    %>
-    <div class="col-lg-3">
-      <div class="row">
-        <div class="col-sm-5">
-          <img src="<%=student.getPhotoUrl() %>" class="img-circle" width=100 height=100>
-        </div>
-        <div clss="col-sm-7">
-          <p>姓名：<%=student.getName()%></p>
-          <p>高中：<%=student.getSchool()%></p>
-          <p>年级：<%=student.getGrade()%></p>
-          <p>成就：<%=student.getAchievement()%></p>
-        </div>
-      </div>
+    <div class="col-lg-12">
+      <% List<Student> allStudent2 =(List<Student>) request.getAttribute("allStudent");
+        for(Student student:allStudent2){
+      %>
 
+    <table class="table text-left table-condensed">
+      <tbody class="text-left">
+      <tr>
+        <td><img src="<%=student.getPhotoUrl() %>" class="img-circle" width=100 height=100></td>
+        <td>
+          <table class="table">
+          <tr><td>姓名：<%=student.getName()%></td></tr>
+          <tr><td>高中：<%=student.getSchool()%></td></tr>
+          <tr><td>年级：<%=student.getGrade()%></td></tr>
+          <tr><td>成就：<%=student.getAchievement()%></td></tr>
+          </table>
+        </td>
+      </tr>
+
+      </tbody>
+    </table>
+
+      <% } %>
     </div>
-    <% } %>
   </div>
 </div>
 </body>

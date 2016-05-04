@@ -101,7 +101,8 @@
         }
       %>
       <tr>
-        <td colspan="6"><button class="btn btn-default" data-toggle="modal" data-target="#updateModal" onclick="add()">添加</button></td>
+        <td colspan="3"><button class="btn btn-default" data-toggle="modal" data-target="#updateModal" onclick="add()">添加</button></td>
+        <td colspan="3"><button class="btn btn-default" data-toggle="modal" data-target="#addvideo" onclick="addVideo()">添加视频</button></td>
       </tr>
     </tbody>
   </table>
@@ -147,6 +148,49 @@
             <label for="achieve" class="col-sm-2 control-label">Achievement</label>
             <div class="col-sm-10">
               <input type="file" name="teacherPhoto" enctype="multipart/form-data"/>
+            </div>
+          </div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">提交</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="addvideo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel2">更新老师信息</h4>
+      </div>
+      <div class="modal-body">
+        <form id="addvideoform" action="/view/addvideo" method="post" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="name" class="col-sm-2 control-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name" name="name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="grade" class="col-sm-2 control-label">Grade</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="grade" name="grade">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="desc" class="col-sm-2 control-label">Description</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" rows="3" id="desc" name="desc"></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-10">
+              <input type="file" name="video" enctype="multipart/form-data"/>
             </div>
           </div>
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>

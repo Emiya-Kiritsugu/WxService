@@ -2,8 +2,10 @@ package com.xmc.controller;
 
 import com.xmc.entity.Student;
 import com.xmc.entity.Teacher;
+import com.xmc.entity.Video;
 import com.xmc.service.StudentService;
 import com.xmc.service.TeacherService;
+import com.xmc.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -29,6 +31,8 @@ public class ShowController {
     StudentService studentService;
     @Autowired
     TeacherService teacherService;
+    @Autowired
+    VideoService videoService;
 
     @RequestMapping("/test")
     public String test(){
@@ -166,6 +170,35 @@ public class ShowController {
         modelMap.put("allTeacher",allTeacher);
         return "pages/showteacher";
     }
+
+    @RequestMapping("/showvideo")
+    public String showvideo(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
+        System.out.println("allvideo");
+        List<Video> videoList = videoService.getAllVideos();
+        modelMap.put("title","孺子牛老师风采");
+        modelMap.put("allVideo",videoList);
+        return "pages/showvideo";
+    }
+
+    @RequestMapping("/addvideo")
+    public String addvideo(@RequestParam("video") MultipartFile file,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws IOException {
+        Video video = new Video();
+        String grade = request.getParameter("grade");
+        String name = request.getParameter("name");
+        String desc = request.getParameter("desc");
+        String url = uploadPic(file,request,response);
+        video.setGrade(grade);
+        video.setName(name);
+        video.setDescription(desc);
+        video.setUrl(url);
+        videoService.insertVideo(video);
+        List<Video> videoList = videoService.getAllVideos();
+        modelMap.put("title", "孺子牛老师风采");
+        modelMap.put("allVideo", videoList);
+        return "pages/showvideo";
+    }
+
+
 
     private String uploadPic( MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String logoPathDir = "/staticSource/upload/";
