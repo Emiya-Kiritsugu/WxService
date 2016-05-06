@@ -21,13 +21,13 @@
 
     <update id="updateById" parameterType="Video">
         UPDATE Students
-        SET name = #{name}, grade = #{grade}, url = #{url}, description = #{description}
+        SET name = #{name}, grade = #{grade}, subject = #{subject}, url = #{url}, description = #{description}
         WHERE  id = #{id}
     </update>
 
     <insert id="insert" parameterType="Video" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO Videos(name, grade, description, url)
-        VALUES (#{name}, #{grade}, #{description}, #{url});
+        INSERT INTO Videos(name, grade, subject, description, url)
+        VALUES (#{name}, #{grade}, #{subject}, #{description}, #{url});
     </insert>
 
 
