@@ -2,6 +2,7 @@ package com.xmc.service;
 
 import com.xmc.entity.Student;
 import com.xmc.entity.Video;
+import com.xmc.enums.Grade;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public interface VideoService {
 
     void updateVideo(Video video);
 
-
     void insertVideo(Video video);
+
+    List<Video> getVideosByGrade(Grade grade);
 }

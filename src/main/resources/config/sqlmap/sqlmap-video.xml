@@ -30,5 +30,11 @@
         VALUES (#{name}, #{grade}, #{subject}, #{description}, #{url});
     </insert>
 
+    <select id="getVideosByGrade" parameterType="com.xmc.enums.Grade" resultType="Video">
+        SELECT *
+        FROM Videos
+        WHERE grade = #{grade};
+    </select>
+
 
 </mapper>

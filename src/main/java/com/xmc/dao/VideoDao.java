@@ -3,6 +3,7 @@ package com.xmc.dao;
 import com.xmc.annotation.MybatisComponent;
 import com.xmc.entity.Student;
 import com.xmc.entity.Video;
+import com.xmc.enums.Grade;
 
 import java.util.List;
 
@@ -21,4 +22,6 @@ public interface VideoDao {
     Video getVideoById(int id);
 
     List<Video> getAllVideos();
+
+    List<Video> getVideosByGrade(Grade grade);
 }

@@ -3,9 +3,12 @@ package com.xmc.controller;
 import com.xmc.entity.Student;
 import com.xmc.entity.Teacher;
 import com.xmc.entity.Video;
+import com.xmc.enums.Grade;
+import com.xmc.enums.Subject;
 import com.xmc.service.StudentService;
 import com.xmc.service.TeacherService;
 import com.xmc.service.VideoService;
+import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -17,8 +20,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by xmc1993 on 16/4/8.
@@ -39,13 +41,31 @@ public class ShowController {
         return "pages/Test";
     }
 
+    @RequestMapping("/changeTeacher")
+    public String changeTeacher(@RequestParam("id") String id,ModelMap modelMap){
+        System.out.println("id:" + id);
+        int _id = Integer.parseInt(id);
+        Teacher teacher = teacherService.getTeacherById(_id);
+        modelMap.put("teacher",teacher);
+        return "pages/template/details";
+    }
+
+    @RequestMapping("/changeStudent")
+    public String changeStudent(@RequestParam("id") String id,ModelMap modelMap){
+        System.out.println("id:" + id);
+        int _id = Integer.parseInt(id);
+        Student student = studentService.getStudentById(_id);
+        modelMap.put("student",student);
+        return "pages/template/details_stu";
+    }
+
     @RequestMapping("/allteacher")
     public String allTeacher(ModelMap modelMap){
         System.out.println("allTeacher");
         List<Teacher> allTeacher = teacherService.getAllTeachers();
         modelMap.put("title","孺子牛老师风采");
         modelMap.put("allTeacher",allTeacher);
-        return "pages/teacher";
+        return "pages/template/teacher";
     }
 
     @RequestMapping("/allstudent")
@@ -54,16 +74,20 @@ public class ShowController {
         List<Student> allStudent = studentService.getAllStudents();
         modelMap.put("title","孺子牛学生风采");
         modelMap.put("allStudent",allStudent);
-        return "pages/student";
+        return "pages/template/student";
     }
 
     @RequestMapping("/updateteacher")
     public String updateteacher(@RequestParam("teacherPhoto") MultipartFile file,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws IOException {
-
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        System.out.println("teacherNo:"+request.getParameter("teachNo"));
         if(request.getParameter("teachNo") != null && !request.getParameter("teachNo").equals("")) {
             System.out.println("updateTeacher");
-            String teacherProfile = request.getParameter("profile");
+            String teacherProfile = new String(request.getParameter("profile").getBytes("ISO-8859-1"),"utf-8");
+
             String teacherAchieve = request.getParameter("achieve");
+            System.out.println("profile"+teacherProfile+";"+teacherAchieve);
             int teacherNo = Integer.parseInt(request.getParameter("teachNo"));
             Teacher teacher = teacherService.getTeacherById(teacherNo);
             teacher.setAchievement(teacherAchieve);
@@ -73,7 +97,7 @@ public class ShowController {
             uploadPic(file,request,response);
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allTeacher", allTeacher);
-            return "pages/teacher";
+            return "pages/template/teacher";
         }else{
             System.out.println("addTeacher");
             String teacherProfile = request.getParameter("profile");
@@ -88,7 +112,7 @@ public class ShowController {
             uploadPic(file,request,response);
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allTeacher", allTeacher);
-            return "pages/teacher";
+            return "pages/template/teacher";
         }
     }
 
@@ -106,7 +130,7 @@ public class ShowController {
             List<Student> allStudent = studentService.getAllStudents();
             modelMap.put("title", "孺子牛学生风采");
             modelMap.put("allStudent", allStudent);
-            return "pages/student";
+            return "pages/template/student";
         }else{
             System.out.println("addStudent");
             String studentAchieve = request.getParameter("achieve");
@@ -127,7 +151,7 @@ public class ShowController {
             System.out.println(allStudent.get(0).getName());
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allStudent", allStudent);
-            return "pages/student";
+            return "pages/template/student";
         }
     }
 
@@ -159,7 +183,7 @@ public class ShowController {
         List<Student> allStudent = studentService.getAllStudents();
         modelMap.put("title","孺子牛学生风采");
         modelMap.put("allStudent",allStudent);
-        return "pages/showstudent";
+        return "pages/template/showstudent";
     }
 
     @RequestMapping("/showteacher")
@@ -168,7 +192,7 @@ public class ShowController {
         List<Teacher> allTeacher = teacherService.getAllTeachers();
         modelMap.put("title","孺子牛老师风采");
         modelMap.put("allTeacher",allTeacher);
-        return "pages/showteacher";
+        return "pages/template/showteacher";
     }
 
     @RequestMapping("/showvideo")
@@ -181,24 +205,71 @@ public class ShowController {
     }
 
     @RequestMapping("/addvideo")
-    public String addvideo(@RequestParam("video") MultipartFile file,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws IOException {
+    public String addvideo(@RequestParam("video") MultipartFile file ,@RequestParam("grade") Grade grade ,
+                            @RequestParam("name") String name, @RequestParam("desc") String desc ,
+                            @RequestParam("subject") Subject subject,
+                           HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws IOException {
         Video video = new Video();
-        String grade = request.getParameter("grade");
-        String name = request.getParameter("name");
-        String desc = request.getParameter("desc");
-        String url = uploadPic(file,request,response);
+        video.setDescription(desc);
+        video.setName(name);
+        video.setSubject(subject);
+        String url = uploadVideo(file,request,response,grade.toString(),subject.toString());
         video.setGrade(grade);
         video.setName(name);
         video.setDescription(desc);
         video.setUrl(url);
         videoService.insertVideo(video);
-        List<Video> videoList = videoService.getAllVideos();
+        List<Video> videoList = videoService.getVideosByGrade(Grade.JUNIOR_THREE);
+        Map<String,List<Video>> videoMap = new HashMap<String, List<Video>>();
+        for(Video v : videoList){
+            if(videoMap.containsKey(v.toString())){
+                videoMap.get(v.toString()).add(v);
+            }else{
+                List<Video> videos = new ArrayList<Video>();
+                videos.add(v);
+                videoMap.put(v.toString()
+                , videos);
+            }
+        }
+
         modelMap.put("title", "孺子牛老师风采");
-        modelMap.put("allVideo", videoList);
-        return "pages/showvideo";
+        modelMap.put("allVideo", videoMap);
+        return "pages/video";
     }
 
+    @RequestMapping("/allVideo")
+    public String gradeVide(@RequestParam("grade") Grade grade,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
+        if(grade == null){
+            grade = Grade.JUNIOR_THREE;
+        }
+        List<Video> videoList = videoService.getVideosByGrade(grade);
+        Map<String,List<Video>> videoMap = new TreeMap<String, List<Video>>(new Comparator<String>() {
+            public int compare(String o1, String o2) {
+                return o1.compareTo(o2);
+            }
+        });
+        for(Video v : videoList){
+            if(videoMap.containsKey(v.toString())){
+                videoMap.get(v.getSubject().toString()).add(v);
+            }else{
+                List<Video> videos = new ArrayList<Video>();
+                videos.add(v);
+                videoMap.put(v.getSubject().toString()
+                        , videos);
+            }
+        }
 
+        modelMap.put("title", "孺子牛老师风采");
+        modelMap.put("allVideo", videoMap);
+        modelMap.put(grade.toString(),"active");
+        return "pages/video";
+    }
+
+    @RequestMapping("/deleteVideo")
+    public void deleteVideo(@RequestParam("id") int id,HttpServletResponse response,ModelMap modelMap){
+
+        videoService.deleteVideoById(id);
+    }
 
     private String uploadPic( MultipartFile file, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String logoPathDir = "/staticSource/upload/";
@@ -218,7 +289,27 @@ public class ShowController {
             tempFile.createNewFile();
         }
         file.transferTo(tempFile);
-        System.out.println( logoPathDir+fileName);
+        System.out.println(logoPathDir + fileName);
+        return logoPathDir+fileName;
+    }
+    private String uploadVideo( MultipartFile file, HttpServletRequest request, HttpServletResponse response,String grade,String subject) throws IOException {
+        String logoPathDir = "/staticSource/upload/";
+        String logoRealPathDir = request.getSession().getServletContext()
+                .getRealPath(logoPathDir);
+        File targetDir = new File(logoRealPathDir);
+        if(!targetDir.exists()){
+            targetDir.mkdir();
+        }
+        String fileName= grade+"/"+subject+"/"+file.getOriginalFilename();
+        File tempFile = new File(logoRealPathDir, String.valueOf(fileName));
+        if (!tempFile.getParentFile().exists()) {
+            tempFile.getParentFile().mkdir();
+        }
+        if (!tempFile.exists()) {
+            tempFile.createNewFile();
+        }
+        file.transferTo(tempFile);
+        System.out.println(logoPathDir + fileName);
         return logoPathDir+fileName;
     }
 }

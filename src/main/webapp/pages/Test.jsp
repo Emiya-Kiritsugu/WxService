@@ -11,6 +11,6 @@
     <title></title>
 </head>
 <body>
-<p>lalal</p>
+<a href="/pages/template/teacher.jsp">测试</a>
 </body>
 </html>

@@ -3,6 +3,7 @@ package com.xmc.service.impl;
 import com.xmc.dao.VideoDao;
 import com.xmc.entity.Student;
 import com.xmc.entity.Video;
+import com.xmc.enums.Grade;
 import com.xmc.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,5 +36,9 @@ public class VideoServiceImpl implements VideoService {
 
     public void insertVideo(Video video) {
         videoDao.insert(video);
+    }
+
+    public List<Video> getVideosByGrade(Grade grade) {
+        return videoDao.getVideosByGrade(grade);
     }
 }
