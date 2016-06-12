@@ -47,7 +47,13 @@ public class ShowController {
     @RequestMapping("/shownotice")
     public String shownotice(ModelMap modelMap){
         String content = noticeService.getContent();
-        content = "<b>asdfasdf</b>";
+        content = "<pre>\n" +
+                "孺子牛教育智汇1对1是一家结合了优质的教育资源和先进的信息技术，专注于中国教育服务领域的高科技公司。公司是专门致力于学生学习能力开发和培养、自主学习社区建设、家庭教育研究和咨询、课外辅导服务的个性化教育机构。我校是南京专注于中高考课外辅导学校，年培训高三学生1000多人次，成功帮助众多考生进入理想高中，大学。是南京专注于中高考一对一及小组课培训机构，社会口碑显著。我们认为，每一个学生都是独特的，他的成功需要有个性化的教育和培养方式。秉承该理念，致力于传播先进教学思想，研究先进教学方法，开发先进教学产品，提供先进教学服务，帮助学生和家庭获得更多更好的教育和发展机会。\n" +
+                "\n" +
+                "\n" +
+                "校区\n" +
+                "南大金中校区：南京市广州路五号君临国际2座12楼\n" +
+                "大行宫校区：太平南路2号(近中山东路)日月大厦23楼</pre>";
         modelMap.put("notice",content);
         return "pages/template/shownotice";
     }

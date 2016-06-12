@@ -12,7 +12,7 @@
 <head>
 
   <!-- start: Meta -->
-  <title>Bootstrap Metro Dashboard by Dennis Ji for ARM demo</title>
+  <title>孺子牛家教网</title>
   <meta name="description" content="Bootstrap Metro Dashboard">
   <meta name="author" content="Dennis Ji">
   <meta name="keyword" content="Metro, Metro UI, Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
@@ -64,7 +64,7 @@
   <div class="container-fluid-full">
     <div class="box span4" onTablet="span6" onDesktop="span4">
       <div class="box-header">
-        <h2><i class="halflings-icon user"></i><span class="break"></span>学生列表</h2>
+        <h2><i class="halflings-icon user"></i><span class="break"></span>学生风采</h2>
         <div class="box-icon">
           <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
           <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
