@@ -2,19 +2,13 @@
   Created by IntelliJ IDEA.
   User: xyd
   Date: 16/6/8
-  Time: 下午3:56
-  To change this template use File | Settings | File Templates.
---%>
-<%--
-  Created by IntelliJ IDEA.
-  User: xyd
-  Date: 16/6/8
   Time: 下午2:00
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=utf-8" language="java" pageEncoding="utf-8" %>
 <%@ page import="com.xmc.entity.Teacher" %>
 <%@ page import="java.util.List" %>
+<%@ page import="com.xmc.entity.Student" %>
 <%--
   Created by IntelliJ IDEA.
   User: xyd
@@ -63,9 +57,11 @@
 
 
 
+
 </head>
 
 <body>
+<% Student Student = (Student)request.getAttribute("student"); %>
 <!-- start: Header -->
 <div class="navbar">
   <div class="navbar-inner">
@@ -357,10 +353,10 @@
     <div id="sidebar-left" class="span2">
       <div class="nav-collapse sidebar-nav">
         <ul class="nav nav-tabs nav-stacked main-menu">
-          <li><a href="index.html"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 教师管理</span></a></li>
-          <li><a href="messages.html"><i class="icon-envelope"></i><span class="hidden-tablet"> 学生管理</span></a></li>
-          <li><a href="/pages/template/course.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 课程管理</span></a></li>
-          <li class="active"><a href="/pages/template/notice.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 公告管理</span></a></li>
+          <li><a href="/view/allTeacher"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 教师管理</span></a></li>
+          <li><a href="/view/allStudent"><i class="icon-envelope"></i><span class="hidden-tablet"> 学生管理</span></a></li>
+          <li ><a href="/pages/template/course.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 课程管理</span></a></li>
+          <li class="active"><a href="/pages/template/course.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 公告管理</span></a></li>
         </ul>
       </div>
     </div>
@@ -386,11 +382,10 @@
         <li><a href="#">教师管理</a><i class="icon-angle-right"></i></li>
         <li><a href="#">教师信息</a></li>
       </ul>
-
       <div class="row-fluid sortable">
         <div class="box span12">
           <div class="box-header" data-original-title>
-            <h2><i class="halflings-icon edit"></i><span class="break"></span>详细信息</h2>
+            <h2><i class="halflings-icon edit"></i><span class="break"></span>课程管理</h2>
             <div class="box-icon">
               <a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
               <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
@@ -398,51 +393,25 @@
             </div>
           </div>
           <div class="box-content">
-            <form class="form-horizontal" action="/view/updateteacher" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" action="/view/course" method="post" enctype="multipart/form-data">
               <fieldset>
-
-                <div class="control-group">
-                  <label class="control-label" for="disabledInput">老师ID：</label>
-                  <div class="controls">
-                    <input class="input-xlarge" readonly id="disabledInput" name="teachNo" type="text" value="">
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label" for="focusedInput">老师姓名：</label>
-                  <div class="controls">
-                    <input class="input-xlarge focused" id="focusedInput" type="text" value="">
-                  </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label" for="fileInput">选择照片：</label>
-                  <div class="controls">
-                    <input class="input-file uniform_on" id="fileInput" name="teacherPhoto" type="file" enctype="multipart/form-data">
-                  </div>
-                </div>
-                <div class="control-group success">
-                  <label class="control-label" for="inputSuccess">成就：</label>
-                  <div class="controls">
-                    <input type="text" id="inputSuccess" name="achieve" value="">
-                    <span class="help-inline"></span>
-                  </div>
-                </div>
                 <div class="control-group hidden-phone">
-                  <label class="control-label" for="textarea2">简介：</label>
+                  <label class="control-label" for="textarea2">公告：</label>
                   <div class="controls">
-                    <textarea class="cleditor" id="textarea2" name="profile" rows="3"></textarea>
+                    <textarea class="cleditor" id="textarea2" rows="3"></textarea>
                   </div>
                 </div>
-                <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">添加</button>
-                </div>
+
               </fieldset>
             </form>
-
+            <div class="form-actions">
+              <button class="btn btn-primary" onclick="upload()">上传</button>
+              <button class="btn">Cancel</button>
+            </div>
           </div>
         </div><!--/span-->
 
       </div><!--/row-->
-
     </div><!--/.fluid-container-->
 
     <!-- end: Content -->
@@ -534,5 +503,6 @@
 
 </body>
 </html>
+
 
 

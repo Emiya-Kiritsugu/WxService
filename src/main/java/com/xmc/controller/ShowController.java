@@ -5,6 +5,7 @@ import com.xmc.entity.Teacher;
 import com.xmc.entity.Video;
 import com.xmc.enums.Grade;
 import com.xmc.enums.Subject;
+import com.xmc.service.NoticeService;
 import com.xmc.service.StudentService;
 import com.xmc.service.TeacherService;
 import com.xmc.service.VideoService;
@@ -35,11 +36,57 @@ public class ShowController {
     TeacherService teacherService;
     @Autowired
     VideoService videoService;
+    @Autowired
+    NoticeService noticeService;
 
     @RequestMapping("/test")
     public String test(){
         return "pages/Test";
     }
+
+    @RequestMapping("/shownotice")
+    public String shownotice(ModelMap modelMap){
+        String content = noticeService.getContent();
+        content = "<b>asdfasdf</b>";
+        modelMap.put("notice",content);
+        return "pages/template/shownotice";
+    }
+
+    @RequestMapping("/notice")
+    public String notice(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
+        String content = request.getParameter("data");
+        noticeService.add(content);
+        System.out.println(content);
+        return "pages/template/notice";
+    }
+
+    @RequestMapping("/course")
+    public String course(@RequestParam("course") MultipartFile file,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws IOException {
+        String grade=request.getParameter("grade");
+
+        String logoPathDir = "/staticSource/upload/";
+        String logoRealPathDir = request.getSession().getServletContext()
+                .getRealPath(logoPathDir);
+        File targetDir = new File(logoRealPathDir);
+        if(!targetDir.exists()){
+            targetDir.mkdir();
+        }
+        String fileName = grade;
+
+        File tempFile = new File(logoRealPathDir, String.valueOf(fileName));
+        if (!tempFile.getParentFile().exists()) {
+            tempFile.getParentFile().mkdir();
+        }
+        if (!tempFile.exists()) {
+            tempFile.createNewFile();
+        }
+        file.transferTo(tempFile);
+        System.out.println(logoPathDir + fileName);
+
+        return "pages/template/course";
+    }
+
+
 
     @RequestMapping("/changeTeacher")
     public String changeTeacher(@RequestParam("id") String id,ModelMap modelMap){

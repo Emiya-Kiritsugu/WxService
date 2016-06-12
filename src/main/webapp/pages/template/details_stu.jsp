@@ -352,8 +352,10 @@
     <div id="sidebar-left" class="span2">
       <div class="nav-collapse sidebar-nav">
         <ul class="nav nav-tabs nav-stacked main-menu">
-          <li class="active"><a href="/view/allTeacher"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 教师管理</span></a></li>
+          <li><a href="/view/allTeacher"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 教师管理</span></a></li>
           <li><a href="/view/allStudent"><i class="icon-envelope"></i><span class="hidden-tablet"> 学生管理</span></a></li>
+          <li ><a href="/pages/template/course.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 课程管理</span></a></li>
+          <li class="active"><a href="/pages/template/notice.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 公告管理</span></a></li>
         </ul>
       </div>
     </div>
@@ -440,12 +442,12 @@
                   </div>
                 </div>
                 <div class="form-actions">
-                  <button type="submit" class="btn btn-primary">保存更改</button>
-                  <button class="btn">删除</button>
+                  <button type="submit" class="btn btn-primary" onclick="test()">保存更改</button>
+                  <button class="btn" onclick="test()">删除</button>
                 </div>
               </fieldset>
             </form>
-
+            <button class="btn" onclick="test()">删除</button>
           </div>
         </div><!--/span-->
 
