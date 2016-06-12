@@ -23,7 +23,6 @@
 
         <!-- 处理对静态资源的请求-->
         <mvc:resources mapping="/staticSource/**" location="/staticSource/" />
-
         <!-- 处理器映射器 -->
         <!--<bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>-->
 

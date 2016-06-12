@@ -39,27 +39,22 @@ public class Consts {
             "\t\t\t\t]\n" +
             "\t\t\t},\n" +
             "\t\t\t{\n" +
-            "\t\t\t\t\"name\" : \"在线试听课\",\n" +
+            "\t\t\t\t\"name\" : \"暑期课程\",\n" +
             "\t\t\t\t\"sub_button\" : [\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"高三课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
+            "\t\t\t\t\t\t\"name\" : \"高中课程\",\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/pages/template/showgaozhong.jsp\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"高二课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
+            "\t\t\t\t\t\t\"name\" : \"初中课程\",\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/pages/template/showchuzhong.jsp\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"高一课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
-            "\t\t\t\t\t},\n" +
-            "\t\t\t\t\t{\n" +
-            "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"初三课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
+            "\t\t\t\t\t\t\"name\" : \"小学课程\",\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/pages/template/showxiaoxue.jsp\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
