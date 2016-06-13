@@ -371,7 +371,7 @@
           <a href="index.html">孺子牛家教网</a>
           <i class="icon-angle-right"></i>
         </li>
-        <li><a href="#">教师管理</a></li>
+        <li><a href="#">学生管理</a></li>
       </ul>
 
       <div class="row-fluid sortable">
@@ -390,7 +390,7 @@
               <tr>
                 <th>学生编号</th>
                 <th>学生姓名</th>
-                <th>简介</th>
+                <th>年级</th>
                 <th>成就</th>
                 <th>操作</th>
               </tr>

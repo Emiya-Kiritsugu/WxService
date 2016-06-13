@@ -175,6 +175,7 @@ public class ShowController {
             System.out.println("updateStudent");
             String teacherAchieve = request.getParameter("achieve");
             int studentNo = Integer.parseInt(request.getParameter("studentNo"));
+            String grade = request.getParameter("grade");
             Student student = studentService.getStudentById(studentNo);
             student.setAchievement(teacherAchieve);
             String photoUrl = uploadPic(file, request, response);
