@@ -5,7 +5,6 @@ function changeTeacher(id){
     console.log(id)
 };
 function test(){
-    alert("ddf")
     console.log('dfdfdf',$('#textarea2').val());
 }
 function upload(){

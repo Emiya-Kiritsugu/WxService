@@ -388,9 +388,9 @@
             <table class="table table-striped table-bordered bootstrap-datatable datatable">
               <thead>
               <tr>
-                <th>教师编号</th>
-                <th>教师姓名</th>
-                <th>profile</th>
+                <th>学生编号</th>
+                <th>学生姓名</th>
+                <th>简介</th>
                 <th>成就</th>
                 <th>操作</th>
               </tr>
