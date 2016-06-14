@@ -353,8 +353,8 @@
         <ul class="nav nav-tabs nav-stacked main-menu">
           <li><a href="/view/allteacher"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 教师管理</span></a></li>
           <li><a href="/view/allstudent"><i class="icon-envelope"></i><span class="hidden-tablet"> 学生管理</span></a></li>
-          <li><a href="/pages/template/course.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 课程管理</span></a></li>
-          <li class="active"><a href="/pages/template/notice.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 公告管理</span></a></li>
+          <li><a href="/view/course"><i class="icon-envelope"></i><span class="hidden-tablet"> 课程管理</span></a></li>
+          <li class="active"><a href="/view/notice"><i class="icon-envelope"></i><span class="hidden-tablet"> 公告管理</span></a></li>
         </ul>
       </div>
     </div>
@@ -404,7 +404,7 @@
                 <div class="control-group">
                   <label class="control-label" for="focusedInput">老师姓名：</label>
                   <div class="controls">
-                    <input class="input-xlarge focused" id="focusedInput" type="text" value="<%=teacher.getName()%>">
+                    <input class="input-xlarge focused" id="focusedInput" type="text" name="name" value="<%=teacher.getName()%>">
                   </div>
                 </div>
                 <div class="control-group">
