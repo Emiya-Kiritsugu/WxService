@@ -54,12 +54,12 @@ public class ShowController {
         return "pages/template/showxiaoxue";
     }
 
-    @RequestMapping("/course")
+    @RequestMapping("/managecourse")
     public String course(){
         return "pages/template/course";
     }
 
-    @RequestMapping("/notice")
+    @RequestMapping("/managenotice")
     public String manageNotice(){
         return "pages/template/notice";
     }
@@ -78,14 +78,6 @@ public class ShowController {
                 "南大金中校区：南京市广州路五号君临国际2座12楼\n" +
                 "大行宫校区：太平南路2号(近中山东路)日月大厦23楼</pre>";
         modelMap.put("notice",content);
-        return "pages/template/shownotice";
-    }
-
-    @RequestMapping("/shownotice")
-    public String notice(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
-        String content = request.getParameter("data");
-        noticeService.add(content);
-        System.out.println(content);
         return "pages/template/shownotice";
     }
 
