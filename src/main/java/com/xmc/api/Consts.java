@@ -18,6 +18,11 @@ public class Consts {
             "\t\t\t\t\"sub_button\" : [\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
+            "\t\t\t\t\t\t\"name\" : \"智汇教育\",\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/view/shownotice\"\n" +
+            "\t\t\t\t\t},\n" +
+            "\t\t\t\t\t{\n" +
+            "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"教师风采\",\n" +
             "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/view/showteacher\"\n" +
             "\t\t\t\t\t},\n" +
@@ -28,12 +33,7 @@ public class Consts {
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"小初高招生考试信息\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
-            "\t\t\t\t\t},\n" +
-            "\t\t\t\t\t{\n" +
-            "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"自主招生\",\n" +
+            "\t\t\t\t\t\t\"name\" : \"最新公告\",\n" +
             "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
             "\t\t\t\t\t}\n" +
             "\t\t\t\t]\n" +

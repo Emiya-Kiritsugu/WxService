@@ -64,7 +64,7 @@
 <div class="container-fluid-full">
   <div class="box span4" onTablet="span6" onDesktop="span4">
     <div class="box-header">
-      <h2><i class="halflings-icon user"></i><span class="break"></span>高中课程</h2>
+      <h2><span class="break"></span>智汇教育</h2>
       <div class="box-icon">
         <a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
         <a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
