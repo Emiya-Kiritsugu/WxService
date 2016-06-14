@@ -54,13 +54,14 @@ public class ShowController {
         return "pages/template/showxiaoxue";
     }
 
-    @RequestMapping("/notice")
-    public String notice(){
-        return "pages/template/notice";
-    }
     @RequestMapping("/course")
     public String course(){
         return "pages/template/course";
+    }
+
+    @RequestMapping("/notice")
+    public String manageNotice(){
+        return "pages/template/notice";
     }
     @RequestMapping("/showchuzhong")
     public String showChuzhong(){
@@ -80,12 +81,12 @@ public class ShowController {
         return "pages/template/shownotice";
     }
 
-    @RequestMapping("/notice")
+    @RequestMapping("/shownotice")
     public String notice(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
         String content = request.getParameter("data");
         noticeService.add(content);
         System.out.println(content);
-        return "pages/template/notice";
+        return "pages/template/shownotice";
     }
 
     @RequestMapping("/course")
