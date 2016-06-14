@@ -44,6 +44,28 @@ public class ShowController {
         return "pages/Test";
     }
 
+    @RequestMapping("/showgaozhong")
+    public String showGaozhong(){
+        return "pages/template/showgaozhong";
+    }
+
+    @RequestMapping("/showxiaoxue")
+    public String showXiaoxue(){
+        return "pages/template/showxiaoxue";
+    }
+
+    @RequestMapping("/notice")
+    public String notice(){
+        return "pages/template/notice";
+    }
+    @RequestMapping("/course")
+    public String course(){
+        return "pages/template/course";
+    }
+    @RequestMapping("/showchuzhong")
+    public String showChuzhong(){
+        return "pages/template/showchuzhong";
+    }
     @RequestMapping("/shownotice")
     public String shownotice(ModelMap modelMap){
         String content = noticeService.getContent();
@@ -142,9 +164,12 @@ public class ShowController {
             String teacherAchieve = request.getParameter("achieve");
             System.out.println("profile"+teacherProfile+";"+teacherAchieve);
             int teacherNo = Integer.parseInt(request.getParameter("teachNo"));
+            String name = "未命名";
+            name = request.getParameter("name");
             Teacher teacher = teacherService.getTeacherById(teacherNo);
             teacher.setAchievement(teacherAchieve);
             teacher.setProfile(teacherProfile);
+            teacher.setName(name);
             teacherService.updateTeacher(teacher);
             List<Teacher> allTeacher = teacherService.getAllTeachers();
             uploadPic(file,request,response);
@@ -175,6 +200,9 @@ public class ShowController {
             System.out.println("updateStudent");
             String teacherAchieve = request.getParameter("achieve");
             int studentNo = Integer.parseInt(request.getParameter("studentNo"));
+            String grade = request.getParameter("grade");
+            String name="未命名";
+            name = request.getParameter("name");
             Student student = studentService.getStudentById(studentNo);
             student.setAchievement(teacherAchieve);
             String photoUrl = uploadPic(file, request, response);

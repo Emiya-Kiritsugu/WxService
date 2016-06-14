@@ -347,8 +347,8 @@
         <ul class="nav nav-tabs nav-stacked main-menu">
           <li><a href="/view/allteacher"><i class="icon-bar-chart"></i><span class="hidden-tablet"> 教师管理</span></a></li>
           <li  class="active"><a href="/view/allstudent"><i class="icon-envelope"></i><span class="hidden-tablet"> 学生管理</span></a></li>
-          <li ><a href="/pages/template/course.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 课程管理</span></a></li>
-          <li><a href="/pages/template/notice.jsp"><i class="icon-envelope"></i><span class="hidden-tablet"> 公告管理</span></a></li>
+          <li ><a href="/view/course"><i class="icon-envelope"></i><span class="hidden-tablet"> 课程管理</span></a></li>
+          <li><a href="/view/notice"><i class="icon-envelope"></i><span class="hidden-tablet"> 公告管理</span></a></li>
         </ul>
       </div>
     </div>
@@ -371,7 +371,7 @@
           <a href="index.html">孺子牛家教网</a>
           <i class="icon-angle-right"></i>
         </li>
-        <li><a href="#">教师管理</a></li>
+        <li><a href="#">学生管理</a></li>
       </ul>
 
       <div class="row-fluid sortable">
@@ -390,7 +390,7 @@
               <tr>
                 <th>学生编号</th>
                 <th>学生姓名</th>
-                <th>简介</th>
+                <th>年级</th>
                 <th>成就</th>
                 <th>操作</th>
               </tr>
