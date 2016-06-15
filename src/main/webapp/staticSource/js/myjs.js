@@ -8,6 +8,7 @@ function test(){
     console.log('dfdfdf',$('#textarea2').val());
 }
 function upload(){
+    console.log($('#textarea2').val())
     $.post("/view/addnotice",{data:$('#textarea2').val()},function(result){
         alert("上传成功")
         window.location.href='/pages/template/notice.jsp';

@@ -371,7 +371,7 @@
 
     <!-- start: Content -->
     <div id="content" class="span10">
-
+<% String content = (String)request.getAttribute("content");%>
 
       <ul class="breadcrumb">
         <li>
@@ -398,7 +398,7 @@
                 <div class="control-group hidden-phone">
                   <label class="control-label" for="textarea2">公告：</label>
                   <div class="controls">
-                    <textarea class="cleditor" id="textarea2" rows="3"></textarea>
+                    <textarea class="cleditor" id="textarea2" rows="3"><%=content %></textarea>
                   </div>
                 </div>
 

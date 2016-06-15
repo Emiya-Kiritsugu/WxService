@@ -21,6 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 /**
@@ -60,13 +61,16 @@ public class ShowController {
     }
 
     @RequestMapping("/addnotice")
-    public String addNotice(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
-        String content = request.getParameter("content");
+    public String addNotice(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws UnsupportedEncodingException {
+        request.setCharacterEncoding("utf8");
+        String content = request.getParameter("data");
         noticeService.add(content);
         return "pages/template/notice";
     }
     @RequestMapping("/managenotice")
-    public String manageNotice(){
+    public String manageNotice(ModelMap modelMap){
+        String content = noticeService.getContent();
+        modelMap.put("content",content);
         return "pages/template/notice";
     }
     @RequestMapping("/showJunior")
