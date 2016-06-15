@@ -411,7 +411,7 @@
                 <div class="control-group">
                   <label class="control-label" for="grade">年级：</label>
                   <div class="controls">
-                    <input class="input-xlarge focused" id="grade" type="text" name="grade" value="<%=Student.getGrade()%>">
+                    <input type="text" name="grade" class="input-xlarge focused" id="grade"  value="<%=Student.getGrade()%>">
                   </div>
                 </div>
                 <div class="control-group">

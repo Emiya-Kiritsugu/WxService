@@ -393,7 +393,7 @@
             </div>
           </div>
           <div class="box-content">
-            <form class="form-horizontal" action="/view/course" method="post" enctype="multipart/form-data">
+            <form class="form-horizontal" method="post" enctype="multipart/form-data">
               <fieldset>
                 <div class="control-group hidden-phone">
                   <label class="control-label" for="textarea2">公告：</label>

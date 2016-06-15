@@ -59,6 +59,12 @@ public class ShowController {
         return "pages/template/course";
     }
 
+    @RequestMapping("/addnotice")
+    public String addNotice(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
+        String content = request.getParameter("content");
+        noticeService.add(content);
+        return "pages/template/notice";
+    }
     @RequestMapping("/managenotice")
     public String manageNotice(){
         return "pages/template/notice";
@@ -200,6 +206,8 @@ public class ShowController {
             student.setAchievement(teacherAchieve);
             String photoUrl = uploadPic(file, request, response);
             student.setPhotoUrl(photoUrl);
+            student.setName(name);
+            student.setGrade(grade);
             studentService.updateStudent(student);
             List<Student> allStudent = studentService.getAllStudents();
             modelMap.put("title", "孺子牛学生风采");

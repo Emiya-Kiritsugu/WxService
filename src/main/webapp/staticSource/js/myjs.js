@@ -8,7 +8,7 @@ function test(){
     console.log('dfdfdf',$('#textarea2').val());
 }
 function upload(){
-    $.post("/view/notice",{data:$('#textarea2').val()},function(result){
+    $.post("/view/addnotice",{data:$('#textarea2').val()},function(result){
         alert("上传成功")
         window.location.href='/pages/template/notice.jsp';
     });

@@ -410,7 +410,7 @@
                 <div class="control-group">
                   <label class="control-label" for="focusedInput">老师姓名：</label>
                   <div class="controls">
-                    <input class="input-xlarge focused" id="focusedInput" type="text" value="">
+                    <input class="input-xlarge focused" id="focusedInput" name="name" type="text" value="">
                   </div>
                 </div>
                 <div class="control-group">
