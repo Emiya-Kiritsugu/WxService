@@ -8,6 +8,7 @@
     <typeAlias alias="Student" type="com.xmc.entity.Student"/>
     <typeAlias alias="Teacher" type="com.xmc.entity.Teacher"/>
     <typeAlias alias="Video" type="com.xmc.entity.Video"/>
+    <typeAlias alias="Notice" type="com.xmc.entity.Notice"/>
 </typeAliases>
 
 <mappers>

@@ -158,7 +158,7 @@ public class ShowController {
         System.out.println("teacherNo:"+request.getParameter("teachNo"));
         if(request.getParameter("teachNo") != null && !request.getParameter("teachNo").equals("")) {
             System.out.println("updateTeacher");
-            String teacherProfile = new String(request.getParameter("profile").getBytes("ISO-8859-1"),"utf-8");
+            String teacherProfile = request.getParameter("profile");
 
             String teacherAchieve = request.getParameter("achieve");
             System.out.println("profile"+teacherProfile+";"+teacherAchieve);
