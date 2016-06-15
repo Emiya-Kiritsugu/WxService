@@ -161,9 +161,11 @@ public class ShowController {
             teacher.setAchievement(teacherAchieve);
             teacher.setProfile(teacherProfile);
             teacher.setName(name);
+            String url = uploadPic(file,request,response);
+            teacher.setPhotoUrl(url);
             teacherService.updateTeacher(teacher);
             List<Teacher> allTeacher = teacherService.getAllTeachers();
-            uploadPic(file,request,response);
+
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allTeacher", allTeacher);
             return "pages/template/teacher";
@@ -176,9 +178,10 @@ public class ShowController {
             teacher.setAchievement(teacherAchieve);
             teacher.setProfile(teacherProfile);
             teacher.setName(teacherName);
+            String url = uploadPic(file,request,response);
+            teacher.setPhotoUrl(url);
             teacherService.insertTeacher(teacher);
             List<Teacher> allTeacher = teacherService.getAllTeachers();
-            uploadPic(file,request,response);
             modelMap.put("title", "孺子牛老师风采");
             modelMap.put("allTeacher", allTeacher);
             return "pages/template/teacher";
