@@ -62,7 +62,6 @@ public class ShowController {
 
     @RequestMapping("/addnotice")
     public String addNotice(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws UnsupportedEncodingException {
-        request.setCharacterEncoding("utf8");
         String content = request.getParameter("data");
         noticeService.add(content);
         return "pages/template/notice";
@@ -80,6 +79,7 @@ public class ShowController {
     @RequestMapping("/showNotice")
     public String shownotice(ModelMap modelMap){
         String content = noticeService.getContent();
+        modelMap.put("notice",content);
         return "pages/template/shownotice";
     }
 
@@ -361,7 +361,9 @@ public class ShowController {
         if(!targetDir.exists()){
             targetDir.mkdir();
         }
-        String fileName = new Date().getTime() + file.getOriginalFilename();
+        String name = file.getOriginalFilename();
+        String prefix=name.substring(name.lastIndexOf(".")+1);
+        String fileName = new Date().getTime() + prefix;
 
         File tempFile = new File(logoRealPathDir, String.valueOf(fileName));
         if (!tempFile.getParentFile().exists()) {

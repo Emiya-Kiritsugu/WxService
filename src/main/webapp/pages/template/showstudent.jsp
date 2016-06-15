@@ -80,7 +80,8 @@
               <img class="avatar" alt="Dennis Ji" src="<%=student.getPhotoUrl() %>">
             </a>
             <strong>姓名:</strong> <a href="#"><%=student.getName()%></a><br>
-            <strong>高中:</strong> <%=student.getSchool()%><br>
+            <strong>年级:</strong> <%=student.getGrade()%><br>
+            <strong>学校:</strong> <%=student.getSchool()%><br>
             <strong>成就:</strong> <%=student.getAchievement()%>
           </li>
           <% } %>

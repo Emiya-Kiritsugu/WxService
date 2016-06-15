@@ -378,8 +378,7 @@
           <a href="index.html">孺子牛家教网</a>
           <i class="icon-angle-right"></i>
         </li>
-        <li><a href="#">教师管理</a><i class="icon-angle-right"></i></li>
-        <li><a href="#">教师信息</a></li>
+        <li><a href="#">课程管理</a><i class="icon-angle-right"></i></li>
       </ul>
       <div class="row-fluid sortable">
         <div class="box span12">
