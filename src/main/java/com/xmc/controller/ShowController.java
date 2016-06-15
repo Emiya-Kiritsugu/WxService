@@ -44,12 +44,12 @@ public class ShowController {
         return "pages/Test";
     }
 
-    @RequestMapping("/showgaozhong")
+    @RequestMapping("/showSenior")
     public String showGaozhong(){
         return "pages/template/showgaozhong";
     }
 
-    @RequestMapping("/showxiaoxue")
+    @RequestMapping("/showPrimary")
     public String showXiaoxue(){
         return "pages/template/showxiaoxue";
     }
@@ -69,11 +69,11 @@ public class ShowController {
     public String manageNotice(){
         return "pages/template/notice";
     }
-    @RequestMapping("/showchuzhong")
+    @RequestMapping("/showJunior")
     public String showChuzhong(){
         return "pages/template/showchuzhong";
     }
-    @RequestMapping("/shownotice")
+    @RequestMapping("/showNotice")
     public String shownotice(ModelMap modelMap){
         String content = noticeService.getContent();
         return "pages/template/shownotice";
@@ -150,7 +150,7 @@ public class ShowController {
         System.out.println("teacherNo:"+request.getParameter("teachNo"));
         if(request.getParameter("teachNo") != null && !request.getParameter("teachNo").equals("")) {
             System.out.println("updateTeacher");
-            String teacherProfile = new String(request.getParameter("profile").getBytes("ISO-8859-1"),"utf-8");
+            String teacherProfile = request.getParameter("profile");
 
             String teacherAchieve = request.getParameter("achieve");
             System.out.println("profile"+teacherProfile+";"+teacherAchieve);
