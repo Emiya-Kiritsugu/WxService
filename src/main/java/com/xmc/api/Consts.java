@@ -19,22 +19,17 @@ public class Consts {
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"智汇教育\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/view/shownotice\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173:8080/oclock-web/view/showNotice\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"教师风采\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/view/showteacher\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173:8080/oclock-web/view/showteacher\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"学生风采\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/view/showstudent\"\n" +
-            "\t\t\t\t\t},\n" +
-            "\t\t\t\t\t{\n" +
-            "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"最新公告\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173:8080/oclock-web/view/showstudent\"\n" +
             "\t\t\t\t\t}\n" +
             "\t\t\t\t]\n" +
             "\t\t\t},\n" +
@@ -44,22 +39,17 @@ public class Consts {
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"高中课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/pages/template/showgaozhong.jsp\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173:8080/oclock-web/view/showSenior\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"初中课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/pages/template/showchuzhong.jsp\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173:8080/oclock-web/view/showJunior\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"小学课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://xmc1993.tunnel.qydev.com/pages/template/showxiaoxue.jsp\"\n" +
-            "\t\t\t\t\t},\n" +
-            "\t\t\t\t\t{\n" +
-            "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"更多课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173:8080/oclock-web/view/showPrimary\"\n" +
             "\t\t\t\t\t}\n" +
             "\t\t\t\t]\n" +
             "\t\t\t},\n" +
@@ -75,11 +65,6 @@ public class Consts {
             "\t\t\t\t\t\t\"type\" : \"click\",\n" +
             "\t\t\t\t\t\t\"name\" : \"官方微博\",\n" +
             "\t\t\t\t\t\t\"key\" : \"CS_WEIBO\"\n" +
-            "\t\t\t\t\t},\n" +
-            "\t\t\t\t\t{\n" +
-            "\t\t\t\t\t\t\"type\" : \"view\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"官方网站\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://baidu.com/\"\n" +
             "\t\t\t\t\t}\n" +
             "\t\t\t\t]\n" +
             "\t\t\t}\n" +
