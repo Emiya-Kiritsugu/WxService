@@ -416,7 +416,7 @@
                 <div class="control-group success">
                   <label class="control-label" for="inputSuccess">成就：</label>
                   <div class="controls">
-                    <input type="text" id="inputSuccess" name="achieve" value="<%=teacher.getAchievement()%>">
+                    <textarea id="inputSuccess" name="achieve" rows="3"><%=teacher.getProfile()%></textarea>
                     <span class="help-inline"></span>
                   </div>
                 </div>

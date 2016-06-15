@@ -187,6 +187,7 @@ public class ShowController {
 
     @RequestMapping("/updatestudent")
     public String updatestudent(@RequestParam("studentPhoto") MultipartFile file,HttpServletRequest request,HttpServletResponse response,ModelMap modelMap) throws IOException {
+        request.setCharacterEncoding("utf8");
         if(request.getParameter("studentNo") != null && !request.getParameter("studentNo").equals("")) {
             System.out.println("updateStudent");
             String teacherAchieve = request.getParameter("achieve");
