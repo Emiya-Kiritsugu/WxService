@@ -60,11 +60,6 @@ public class Consts {
             "\t\t\t\t\t\t\"type\" : \"click\",\n" +
             "\t\t\t\t\t\t\"name\" : \"客服电话\",\n" +
             "\t\t\t\t\t\t\"key\" : \"CS_NUMBER\"\n" +
-            "\t\t\t\t\t},\n" +
-            "\t\t\t\t\t{\n" +
-            "\t\t\t\t\t\t\"type\" : \"click\",\n" +
-            "\t\t\t\t\t\t\"name\" : \"官方微博\",\n" +
-            "\t\t\t\t\t\t\"key\" : \"CS_WEIBO\"\n" +
             "\t\t\t\t\t}\n" +
             "\t\t\t\t]\n" +
             "\t\t\t}\n" +

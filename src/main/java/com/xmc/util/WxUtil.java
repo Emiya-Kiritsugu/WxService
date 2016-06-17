@@ -122,7 +122,7 @@ public class WxUtil {
             //如果要求返回联系方式
             if(wxMpXmlMessage.getEventKey().equals(Consts.NUMGER_EVENT_ID)){
                 WxMpXmlOutTextMessage textMessage = WxMpXmlOutMessage.TEXT()
-                        .content("8321-312")
+                        .content("孺子牛教育\n-服务热线1：025-68662088\n-服务热线2：025-68890048")
                         .fromUser(wxMpXmlMessage.getToUserName())
                         .toUser(wxMpXmlMessage.getFromUserName())
                         .build();
