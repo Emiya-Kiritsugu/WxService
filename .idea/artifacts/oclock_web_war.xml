@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="oclock-web:war">
-    <output-path>$PROJECT_DIR$/target</output-path>
-    <root id="archive" name="oclock-web.war">
-      <element id="artifact" artifact-name="oclock-web:war exploded" />
-    </root>
-  </artifact>
-</component>
