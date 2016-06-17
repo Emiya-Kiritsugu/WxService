@@ -26,10 +26,10 @@ public class WxUtil {
     static{
         //TODO 后期改成配置文件实现
         configStorage = new WxMpInMemoryConfigStorage();
-        configStorage.setAppId("wx5e194f07d324c904");
-        configStorage.setSecret("dc5ad6dc907f2f3df4a276d232fd0f9a");
+        configStorage.setAppId("wx6ecc68917a0e1f07");
+        configStorage.setSecret("8a4fadb13b0f07b9b74e74f192b64bfb");
         configStorage.setToken("xmc1993");
-        configStorage.setAesKey("1gTTXDq0s9W4459ZPFVDIztu7uy8ddi3oMWhWXJkieg");
+        configStorage.setAesKey("vMUdZU1wl0u5810S3XaHGTcqijyIlvv8u2DPc9KyNlv");
 
         //生成WxMpService
         wxMpService = new WxMpServiceImpl();
