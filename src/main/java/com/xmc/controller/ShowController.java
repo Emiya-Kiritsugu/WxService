@@ -239,13 +239,13 @@ public class ShowController {
 
     @RequestMapping("/deleteteacher")
     public String deleteteacher(HttpServletRequest request,HttpServletResponse response,ModelMap modelMap){
-        int teacherNo = Integer.parseInt(request.getParameter("teachNo"));
+        int teacherNo = Integer.parseInt(request.getParameter("teacherNo"));
         System.out.println("deleteTeacher:"+teacherNo);
         teacherService.deleteTeacherById(teacherNo);
         List<Teacher> allTeacher = teacherService.getAllTeachers();
         modelMap.put("title","孺子牛老师风采");
         modelMap.put("allTeacher",allTeacher);
-        return "pages/teacher";
+        return "pages/template/teacher";
     }
 
     @RequestMapping("/deletestudent")
@@ -255,8 +255,8 @@ public class ShowController {
         studentService.deleteStudentById(studentNo);
         List<Student> allStudent = studentService.getAllStudents();
         modelMap.put("title","孺子牛学生风采");
-        modelMap.put("allTeacher",allStudent);
-        return "pages/student";
+        modelMap.put("allStudent",allStudent);
+        return "pages/template/student";
     }
 
     @RequestMapping("/showstudent")

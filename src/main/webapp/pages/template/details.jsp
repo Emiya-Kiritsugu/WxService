@@ -416,7 +416,7 @@
                 <div class="control-group success">
                   <label class="control-label" for="inputSuccess">成就：</label>
                   <div class="controls">
-                    <textarea id="inputSuccess" name="achieve" rows="3"><%=teacher.getProfile()%></textarea>
+                    <textarea id="inputSuccess" name="achieve" rows="3"><%=teacher.getAchievement()%></textarea>
                     <span class="help-inline"></span>
                   </div>
                 </div>
@@ -428,7 +428,7 @@
                 </div>
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary">保存更改</button>
-                  <button class="btn">删除</button>
+                  <a class="btn" href="/view/deleteteacher?teacherNo=<%=teacher.getTeaNo()%>">删除</a>
                 </div>
               </fieldset>
             </form>

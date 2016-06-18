@@ -449,11 +449,10 @@
                 </div>
                 <div class="form-actions">
                   <button type="submit" class="btn btn-primary" onclick="test()">保存更改</button>
-                  <button class="btn" onclick="test()">删除</button>
+                  <a class="btn" href="/view/deletestudent?studentNo=<%=Student.getStuNo()%>">删除</a>
                 </div>
               </fieldset>
             </form>
-            <button class="btn" onclick="test()">删除</button>
           </div>
         </div><!--/span-->
 
