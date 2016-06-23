@@ -19,17 +19,17 @@ public class Consts {
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"智汇教育\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173/view/showNotice\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://www.rznedu.cn/view/showNotice\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"教师风采\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173/view/showteacher\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://www.rznedu.cn/view/showteacher\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"学生风采\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173/view/showstudent\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://www.rznedu.cn/view/showstudent\"\n" +
             "\t\t\t\t\t}\n" +
             "\t\t\t\t]\n" +
             "\t\t\t},\n" +
@@ -39,17 +39,17 @@ public class Consts {
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"高中课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173/view/showSenior\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://www.rznedu.cn/view/showSenior\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"初中课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173/view/showJunior\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://www.rznedu.cn/view/showJunior\"\n" +
             "\t\t\t\t\t},\n" +
             "\t\t\t\t\t{\n" +
             "\t\t\t\t\t\t\"type\" : \"view\",\n" +
             "\t\t\t\t\t\t\"name\" : \"小学课程\",\n" +
-            "\t\t\t\t\t\t\"url\" : \"http://120.27.219.173/view/showPrimary\"\n" +
+            "\t\t\t\t\t\t\"url\" : \"http://www.rznedu.cn/view/showPrimary\"\n" +
             "\t\t\t\t\t}\n" +
             "\t\t\t\t]\n" +
             "\t\t\t},\n" +
