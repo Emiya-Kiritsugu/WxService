@@ -397,7 +397,7 @@
                 <div class="control-group hidden-phone">
                   <label class="control-label" for="textarea2">公告：</label>
                   <div class="controls">
-                    <textarea class="cleditor" id="textarea2" rows="3"><%=content %></textarea>
+                    <textarea class="cleditor" id="textarea2" rows="12"><%=content %></textarea>
                   </div>
                 </div>
 
@@ -436,7 +436,7 @@
 <footer>
 
   <p>
-    <span style="text-align:left;float:left">&copy; 2013 <a href="http://jiji262.github.io/Bootstrap_Metro_Dashboard/" alt="Bootstrap_Metro_Dashboard">Bootstrap Metro Dashboard</a></span>
+    <span style="text-align:left;float:left">&copy; 2016 孺子牛家教网</span>
 
   </p>
 
