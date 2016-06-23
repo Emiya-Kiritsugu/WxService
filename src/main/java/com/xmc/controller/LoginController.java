@@ -31,9 +31,8 @@ public class LoginController {
     @RequestMapping("/login")
     public String login(ModelMap modelMap){
         modelMap.put("test", "test");
-        return "pages/Test";
+        return "pages/template/login";
     }
-
     @RequestMapping("/rest")
     public void restFul(ModelMap modelMap){
         modelMap.put("name", "xmc1993");
